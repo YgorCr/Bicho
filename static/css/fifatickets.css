@@ -1,0 +1,30 @@
+
+#header {
+	text-align: center;
+}
+
+body {
+  padding-top: 50px;
+}
+
+#container {
+	margin-top: 18px;
+}
+
+.tdform {
+	padding-top: 18px;
+}
+
+.tdlabel {
+	padding-top: 16px;
+}
+
+.panel-heading {
+	font-size: 25px;
+	font-style: bold;
+}
+
+.hdefault {
+	font-size: 20px;
+	font-style: normal;
+}
