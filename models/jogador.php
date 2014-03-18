@@ -19,7 +19,7 @@
 ?>
 
 <?php
-	class Comprador {
+	class Jogador {
 		private $id;
 		private $nome;
 		private $cpf_cod;
