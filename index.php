@@ -4,23 +4,8 @@ include('config.php');
 
 require_once('class.db.php');
 
-require_once('models/compra.php');
-require_once('controllers/compra.controller.php');
-
-require_once('models/comprador.php');
-require_once('controllers/comprador.controller.php');
-
-require_once('models/partida.php');
-require_once('controllers/partida.controller.php');
-
-require_once('models/ingresso.php');
-require_once('controllers/ingresso.controller.php');
-
-require_once('models/local.php');
-require_once('controllers/local.controller.php');
-
-require_once("models/ingressosClasses.php");
-require_once("controllers/ingressosClasses.controller.php");
+require_once("models/jogador.php");
+require_once("controllers/jogador.controller.php");
 
 require_once("models/administrador.php");
 require_once("controllers/administrador.controller.php");
@@ -29,14 +14,14 @@ $configUrl = "pgsql:dbname=".$config["dbname"].";host=".$config["dbhost"].";";
 
 $db = new db($configUrl,$config["dbuser"],$config["dbpass"]);
 
-$compradorController = new CompradorController($db);
+$jogadorController = new JogadorController($db);
 
-// $_SESSION["comprador_id"] = "2"; // TODO: FAZER O LOGIN!
+// $_SESSION["jogador_id"] = "2"; // TODO: FAZER O LOGIN!
 session_start();
-$comprador_id = $_SESSION["comprador_id"];
-if(isset($comprador_id))
+$jogador_id = $_SESSION["jogador_id"];
+if(isset($jogador_id))
 {
-	$comprador = $compradorController->byId($comprador_id);
+	$jogador = $jogadorController->byId($jogador_id);
 }
 
 $admin_id = $_SESSION["admin_id"];

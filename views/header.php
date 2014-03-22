@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="GustavoBrito, Igor Malheiros, Ygor Crispim">
+    <meta name="author" content="José Everaldo, Ygor Crispim">
 
-    <title>FifaTickets</title>
+    <title>Bicho</title>
 
     <!-- Bootstrap core CSS -->
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
@@ -36,35 +36,35 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="?a=home">FifaTickets</a>
+          <a class="navbar-brand" href="?a=home">Bicho</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li 
               <?php if($ac=="home" || $ac=="partidas"){ ?> class="active" <?php } ?>
-               ><a href="?a=home">Partidas</a></li>
+               ><a href="?a=home">Home</a></li>
 
             <li 
-              <?php if($ac=="comprador"){ ?> class="active" <?php } ?>
-               ><a href="?a=comprador"> <?php if($comprador) echo "Minha conta"; else echo "Meu cadastro"; ?> </a></li>
+              <?php if($ac=="jogador"){ ?> class="active" <?php } ?>
+               ><a href="?a=jogador"> <?php if($jogador) echo "Minha conta"; else echo "Cadastre-se"; ?> </a></li>
 
             <li 
               <?php if($ac=="sobre"){ ?> class="active" <?php } ?>
                ><a href="?a=sobre">Sobre</a></li>
 
             <li 
-              <?php if($ac=="comprador.login"){ ?> class="active" <?php } ?>
+              <?php if($ac=="jogador.login"){ ?> class="active" <?php } ?>
                >
 
-               <?php if(!$comprador){ ?>
-                <a href="?a=comprador.login">Login</a>
+               <?php if(!$jogador){ ?>
+                <a href="?a=jogador.login">Login</a>
               <?php } else { ?>
-                <a href="#"><?php echo $comprador->get("nome"); ?></a>
+                <a href="#"><?php echo $jogador->get("nome"); ?></a>
               <?php } ?>
 
              </li>
 
-             <?php if($comprador) { ?>
+             <?php if($jogador) { ?>
              <li>
               <a href="?a=logout">Sair</a>
              </li>
@@ -76,7 +76,7 @@
             <div class="form-group">
               <input type="hidden" name="a" value="buscar"/>
               <input type="hidden" name="by" value="nome" />
-              <input type="text" class="form-control" placeholder="Buscar partida" name="q">
+              <input type="text" class="form-control" placeholder="Buscar resultados" name="q">
             </div>
             <button type="submit" class="btn btn-default">Buscar</button>
           </form>

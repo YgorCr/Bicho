@@ -6,112 +6,73 @@
 ?>
 
 <?php
+	session_start();
 
-	$ptCtr = new PartidaController($db);
-	$localCtr = new LocalController($db);
+	$cpf = $_POST["cpf"];
+	$senha = $_POST["senha"];
 
-	$partidas = $ptCtr->proximasPartidas(date("y-m-d"), 5);
-
-	$total = 0;
-	$totalVendidos = 0;
-	$ingressosClassesCtr = new IngressosClassesController($db);
-	$classes = $ingressosClassesCtr->all(0);
-	foreach ($classes as $classe) {
-		$total = $total + $classe->get("total");
-		$totalVendidos = $totalVendidos + $classe->get("vendidos");
-	}
-
-	$totalPartidas = count($ptCtr->all(0));
-
-	$totalArrecadado = 0.0;
-	$ingressosCtr = new IngressoController($db);
-	$ingressos = $ingressosCtr->all(0);
-	foreach ($ingressos as $ingresso) {
-		$classe = $ingressosClassesCtr->byId($ingresso->get("ingressos_classes_id"));
-		$totalArrecadado = $totalArrecadado + $classe->get("valor");
+	if(isset($cpf) && isset($senha))
+	{
+		$ctr = new JogadorController($db);
+		$jogador = $ctr->tryLogin($cpf, $senha);
+		if($jogador)
+		{
+			$_SESSION["jogador_id"] = $jogador->get("id");
+			header("location:?a=home");
+		} else {
+			$errorMsg = "Falha no login!";
+		}
 	}
 
 ?>
 
-<div id="home-wrapper">
+<?php
+	if($errorMsg) {
+?>
 
-	<div style="float: left;">
-		<img src="static/images/logo.jpg" style="width: 190px;"><br>
-		
-		<div class="panel panel-default">
-		  <div class="panel-heading">Relatório</div>
-		  <div class="panel-body">
-		    
-		    <table class="table">
-		    	<tr>
-		    		<td>Ingressos:</td>
-		    		<td><?php echo $total; ?></td>
-		    	</tr>
-
-		    	<tr>
-		    		<td>Vendidos:</td>
-		    		<td><?php echo $totalVendidos; ?></td>
-		    	</tr>
-
-		    	<tr>
-		    		<td>Partidas:</td>
-		    		<td><?php echo $totalPartidas; ?></td>
-		    	</tr>
-
-		    	<tr>
-		    		<td>Arrecadado:</td>
-		    		<td><?php echo $totalArrecadado; ?></td>
-		    	</tr>
-
-		    </table>
-
-		  </div>
-		</div>
-
-	</div>
-
-	<div class="panel panel-default" style="margin-left: 18%">
-	  <div class="panel-heading">Próximas partidas</div>
-	  <div class="panel-body">
-
-		<table class="table">
-
-			<tr>
-				<th>#</th>
-				<th>Partida</th>
-				<th>Tipo</th>
-				<th>Data</th>
-				<th>Local</th>
-				<th><th>
-			</tr>
-
-			<?php
-				foreach ($partidas as $key => $partida) {
-					$local = $localCtr->byId($partida->get("local_id"));
-					$class = ($key%2)?("success"):("");
-			?>
-					<tr class = "<?php echo $class; ?>" >
-						<td><?php echo $partida->get("id"); ?></td>
-						<td><?php echo $partida->get("nome"); ?></td>
-						<td><?php echo $partida->get("tipo"); ?></td>
-						<td><?php echo $partida->get("data"); ?></td>
-						<td><?php echo $local->get("nome"); ?></td>
-						<td><a href="?a=partida&id=<?php echo $partida->get("id") ?>"> <button type="button" class="btn btn-default btn-sm
-							">
-		  <span class="glyphicon glyphicon-info-sign"></span> Ver </button> </a></td>
-					</tr>
-
-			<?php
-				}
-			?>
-
-		</table>
-
-		</div>
-	</div>
-
+<div class="panel panel-danger">
+  <div class="panel-heading">Erro</div>
+  <div class="panel-body">
+  	<?php echo $errorMsg; ?>
+  </div>
 </div>
-	
+
+<?php
+	}
+?>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Login</div>
+  <div class="panel-body" style="padding-left: 10%; padding-right: 10%;">
+  	<table class="table">
+		<td>
+			<img src="static/images/premios_300x294.png" class="img-rounded">
+		</td>
+  		<td>
+		  	<form action="index.php?a=jogador.login&login" method="post">
+			  	<table class="table" style="vertical-align:middle">
+			  		<tr>
+			  			<td>CPF:</td>
+			  			<td><input type="text" class="form-control" name="cpf"></td>
+			  		</tr>
+
+			  		<tr>
+			  			<td>Senha:</td>
+			  			<td><input type="password" class="form-control" name="senha"></td>
+			  		</tr>
+
+			  	</table>
+			  	<div>
+			  		<center>
+				  		<button type="clean" class="btn btn-default">Limpar</button>
+				  		<button type="submit" class="btn btn-default">Entrar</button>
+			  		</center>
+			  	</div>
+			</form>
+		</td>
+	</table>
+  </div>
+</div>
 
 <?php
 

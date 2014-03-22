@@ -39,11 +39,11 @@
 
 			if($numArgs >= 10){
 				foreach ($this->attr as $key => $attrName) {
-					if(Comprador::validaCampo($attrName, $args[$key])){
+					if(Jogador::validaCampo($attrName, $args[$key])){
 						$this->$attrName = $args[$key];
 					}
 					else{
-						throw new Exception(Comprador::errorMsg($attrName), 1);
+						throw new Exception(Jogador::errorMsg($attrName), 1);
 					}
 				}
 			}
@@ -54,11 +54,11 @@
 		}
 
 		public function set($attrName, $attrValue){
-			if(Comprador::validaCampo($attrName, $attrValue)){
+			if(Jogador::validaCampo($attrName, $attrValue)){
 				$this->$attrName = $attrValue;
 			}
 			else{
-				throw new Exception(Comprador::errorMsg($attrName), 1);
+				throw new Exception(Jogador::errorMsg($attrName), 1);
 			}
 		}
 
