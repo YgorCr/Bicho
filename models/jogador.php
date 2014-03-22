@@ -68,7 +68,7 @@
 
 			switch ($attrName) {
 				case 'id':
-					return $tam != 0;
+					return true;
 
 				case 'nome':
 					return ($tam > 0);
