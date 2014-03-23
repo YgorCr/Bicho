@@ -3,6 +3,7 @@
 	<head>
 	    <meta charset='UTF-8' />
 		<title></title>
+		<script type="text/javascript" src="../static/js/apostas.js"></script>
 	</head>
 	<body>	
 		<?php
@@ -51,21 +52,47 @@
 				    echo "<h1>Aposta por Dezena</h1>
                           <form action='' method=''>
 				            <table>
-				                <tr><td>Defina a modalidade da jogada: </td><td><input type='radio' name='modalidade' value='seca'/> Seca - <img src='../static/images/duvida.jpg' title='Apostar um única dezena no primeiro prêmio' height='14' width='14'/>
-				                                                                <input type='radio' name='modalidade' value='terno'/> Terno - <img src='../static/images/duvida.jpg' title='Apostar 3 dezenas. Ganha-se se as 3 dezenas aparecerem do 1° ao 5° prêmio' height='14' width='14'/> 
-				                                                                <input type='radio' name='modalidade' value='duque'/> Duque - <img src='../static/images/duvida.jpg' title='Apostar 2 dezenas. Ganha-se acertando entre o 1° e o 5° prêmio.' height='14' width='14'/></td></tr>
-				                <tr><td>Defina o valor da Dezena: </td><td><input type='text' name='dezena'/></td></tr>
-				                <tr><td></td><td><input type='submit' value='Apostar'/></td></tr>
+				                <tr><td>Defina a modalidade da jogada: </td><td><input type='radio' name='modalidade' value='seca' onchange=\"insereCampoAposta('secaDezena', document.getElementById('campoAposta'), document.getElementById('botaoAposta'))\" /> Seca - <img src='../static/images/duvida.jpg' title='Apostar uma única dezena no primeiro prêmio' height='14' width='14' />
+				                                                                <input type='radio' name='modalidade' value='duque' onchange=\"insereCampoAposta('duqueDezena', document.getElementById('campoAposta'), document.getElementById('botaoAposta'))\"/> Duque - <img src='../static/images/duvida.jpg' title='Apostar 2 dezenas. Ganha-se acertando entre o 1° e o 5° prêmio.' height='14' width='14'/>
+				                                                                <input type='radio' name='modalidade' value='terno' onchange=\"insereCampoAposta('ternoDezena', document.getElementById('campoAposta'), document.getElementById('botaoAposta'))\"/> Terno - <img src='../static/images/duvida.jpg' title='Apostar 3 dezenas. Ganha-se se as 3 dezenas aparecerem do 1° ao 5° prêmio' height='14' width='14'/></td></tr>
+				            </table>
+				            <table>
+				                <tr><td><div id='campoAposta'></div></td></tr>
+				                <tr id='botaoAposta'></tr>
 				            </table>
 				          </form>";
 					break;
 				}
 				
 				case 'centena':{
+				    echo "<h1>Aposta por Centena</h1>
+				          <form action='' method=''>
+                            <table>
+                                <tr><td>Defina a modalidade da jogada: </td><td><input type='radio' name='modalidade' value='seca' onchange=\"insereCampoAposta('secaCentena', document.getElementById('campoAposta'), document.getElementById('botaoAposta'))\"/> Seca - <img src='../static/images/duvida.jpg' title='Apostar uma única centena no primeiro prêmio' height='14' width='14'/>
+                                                                                <input type='radio' name='modalidade' value='centena1a5' onchange=\"insereCampoAposta('centena1a5', document.getElementById('campoAposta'), document.getElementById('botaoAposta'))\"/> Uma centena do 1º ao 5º prêmio - <img src='../static/images/duvida.jpg' title='Apostar uma única centena. Ganha-se acertando a centena em quaisquer que sejam os prêmios (entre o 1° e o 5°). O prêmio será dividido por 5.' height='14' width='14'/>
+                            </table>
+                            <table>
+                                <tr><td><div id='campoAposta'></div></td></tr>
+                                <tr id='botaoAposta'></tr>
+                            </table> 
+                          </form>";
 					break;
 				}
 				
 				case 'milhar':{
+				    echo "<h1>Aposta por Milhar</h1>
+                          <form action='' method=''>
+                            <table>
+                                <tr><td>Defina a modalidade da jogada: </td><td><input type='radio' name='modalidade' value='seca' onchange=\"insereCampoAposta('secaMilhar', document.getElementById('campoAposta'), document.getElementById('botaoAposta'))\"/> Seca - <img src='../static/images/duvida.jpg' title='Apostar uma única milhar (na mesma sequência) no primeiro prêmio' height='14' width='14'/>
+                                                                                <input type='radio' name='modalidade' value='milhar1ao5' onchange=\"insereCampoAposta('milhar1a5', document.getElementById('campoAposta'), document.getElementById('botaoAposta'))\"/>  Milhar do 1° ao 5° prêmio - <img src='../static/images/duvida.jpg' title='Apostar uma única milhar (na mesma sequência) do 1º ao 5º prêmio' height='14' width='14'/>
+                                                                                <input type='radio' name='modalidade' value='combinadaSeca' onchange=\"insereCampoAposta('milharCombinada', document.getElementById('campoAposta'), document.getElementById('botaoAposta'))\"/> Combinada no 1º prêmio - <img src='../static/images/duvida.jpg' title='Com qualquer combinação, no 1º prêmio, dos números presentes em sua milhar você ganha' height='14' width='14'/>
+                                                                                <input type='radio' name='modalidade' value='combinadaPremioTodos' onchange=\"insereCampoAposta('milharCombinada1a5', document.getElementById('campoAposta'), document.getElementById('botaoAposta'))\"/> Combinada do 1º ao 5º - <img src='../static/images/duvida.jpg' title='Com qualquer combinação, do 1º ao 5º prêmio, dos números presentes em sua milhar você ganha' height='14' width='14'/>
+                            </table>
+                            <table>
+                                <tr><td><div id='campoAposta'></div></td></tr>
+                                <tr id='botaoAposta'></tr>
+                            </table>
+                          </form>";
 					break;
 				}
 				
@@ -74,10 +101,10 @@
 						  <table>
 						  	<form action='apostas.view.php' method='POST'>
 								<tr><th>Tipo de Aposta</th><th>Apostar</th></tr>
-								<tr><th>Grupo</th><th><input type='radio' name='tipo_Aposta' value='grupo'/></tr>
-								<tr><th>Dezena</th><th><input type='radio' name='tipo_Aposta' value='dezena'/></th></tr>
-								<tr><th>Centena</th><th><input type='radio' name='tipo_Aposta' value='centena'/></th></tr>
-								<tr><th>Milhar</th><th><input type='radio' name='tipo_Aposta' value='milhar'/></th></tr>
+								<tr><th>Grupo</th><th><input type='radio' name='tipo_Aposta' value='grupo'/><td><img src='../static/images/duvida.jpg' title='Neste tipo de aposta você escolherá um grupo que corresponde um determinado animal' height='14' width='14'/></td></tr>
+								<tr><th>Dezena</th><th><input type='radio' name='tipo_Aposta' value='dezena'/></th><td><img src='../static/images/duvida.jpg' title='Escolha uma moalidade de aposta para dezena' height='14' width='14'/></td></tr>
+								<tr><th>Centena</th><th><input type='radio' name='tipo_Aposta' value='centena'/></th><td><img src='../static/images/duvida.jpg' title='Escolha uma moalidade de aposta para centena' height='14' width='14'/></td></tr>
+								<tr><th>Milhar</th><th><input type='radio' name='tipo_Aposta' value='milhar'/></th><td><img src='../static/images/duvida.jpg' title='Escolha uma moalidade de aposta para milhar' height='14' width='14'/></td></tr>
 								<tr><th></th><th><input type='submit' value='Escolher' /></th></tr>
 						  	</form>
 						  </table>";
