@@ -9,7 +9,7 @@
 			$opcao = $_POST['tipo_Aposta'];
 			switch ($opcao) {
 				case 'grupo':{
-					echo "<h1>Aposta por Dezena</h1>
+					echo "<h1>Aposta por Grupo</h1>
 						  <h2>Tabela de Apostas</h2>
 						  <table>
 						  	<form action='' method=''>
