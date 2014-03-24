@@ -2,7 +2,7 @@
 <html lang="pt-br">
 	<head>
 	    <meta charset='UTF-8' />
-		<title></title>
+		<title>Local de Apostas</title>
 		<script type="text/javascript" src="../static/js/apostas.js"></script>
 	</head>
 	<body>	
