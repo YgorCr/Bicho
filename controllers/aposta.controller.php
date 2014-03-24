@@ -38,6 +38,25 @@
 			return $apostas[0];
 		}
 
+		public function getPremiadas($data, $tipo_da_aposta, $aposta, $sorteio)
+		{
+			$sqlWhere = "data='".$data."' && tipo_da_aposta = '".$tipo_da_aposta."' && aposta = '".$aposta."' && sorteio = '".$sorteio."'";
+			echo $sqlWhere;
+			$res = $this->db->select("aposta", $sqlWhere);
+
+			$jogadores = array();
+
+			foreach ($res as $arr) {
+				$jog = new Jogador();
+				foreach ($arr as $key => $value) {
+					$jog->set($key, $value);
+				}
+				$jogadores[] = $jog;
+			}
+
+			return $jogadores[0];
+		}
+
 		public function byJogadorId($jogador_id){
 			$res = $this->db->select("aposta", "jogador_id='".$jogador_id."' ORDER BY data DESC");
 
@@ -79,7 +98,6 @@
 			$aposta->set("id", $res[0]["currval"]);
 
 			return $aposta;
-
 		}
 
 		public function update($aposta){

@@ -12,7 +12,7 @@
 			$resultados = array();
 
 			foreach ($res as $arr) {
-				$resu = new Aposta();
+				$resu = new Resultados();
 				foreach ($arr as $key => $value) {
 					$resu->set($key, $value);
 				}
@@ -28,7 +28,7 @@
 			$resultados = array();
 
 			foreach ($res as $arr) {
-				$resu = new Aposta();
+				$resu = new Resultados();
 				foreach ($arr as $key => $value) {
 					$resu->set($key, $value);
 				}
@@ -44,7 +44,7 @@
 			$resultados = array();
 
 			foreach ($res as $arr) {
-				$resu = new Aposta();
+				$resu = new Resultados();
 				foreach ($arr as $key => $value) {
 					$resu->set($key, $value);
 				}
@@ -59,11 +59,11 @@
 			return $this->byJogadorId($jogador->get("id"));
 		}
 				
-		public function create($aposta){
-			$all = $aposta->get("attr");
+		public function create($resultado){
+			$all = $resultado->get("attr");
 			$values = array();
 			foreach ($all as &$value) {
-				$values[] = $aposta->getCtrl($value);
+				$values[] = $resultado->get($value);
 			}
 
 			$insert = array();
@@ -74,19 +74,19 @@
 
 			$this->db->insert('resultados', $insert);
 
-			$res = $this->db->run("SELECT CURRVAL('aposta_id_seq');");
+			$res = $this->db->run("SELECT CURRVAL('resultados_id_seq');");
 
-			$aposta->set("id", $res[0]["currval"]);
+			$resultado->set("id", $res[0]["currval"]);
 
-			return $aposta;
+			return $resultado;
 
 		}
 
-		public function update($aposta){
-			$all = $aposta->get("attr");
+		public function update($resultado){
+			$all = $resultado->get("attr");
 			$values = array();
 			foreach ($all as &$value) {
-				$values[] = $aposta->get($value);
+				$values[] = $resultado->get($value);
 			}
 
 			$insert = array();
@@ -94,12 +94,12 @@
 				$insert[$all[$i]] = $values[$i];
 			}
 
-			return $this->db->update('resultados', $insert, "id='".$aposta->get("id")."'");
+			return $this->db->update('resultados', $insert, "id='".$resultado->get("id")."'");
 
 		}
 
-		public function delete($aposta){
-			return $this->db->delete('resultados', "id='".$aposta->get("id")."'");
+		public function delete($resultado){
+			return $this->db->delete('resultados', "id='".$resultado->get("id")."'");
 
 		}
 	}

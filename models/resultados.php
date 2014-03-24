@@ -16,11 +16,11 @@
 
 			if($numArgs >= 7){
 				foreach ($this->attr as $key => $attrName) {
-					if($this->validaCampo($attrName, $args[$key])){
+					if(Resultados::validaCampo($attrName, $args[$key])){
 						$this->$attrName = $args[$key];
 					}
 					else{
-						throw new Exception(Aposta::errorMsg($attrName), 1);
+						throw new Exception(Resultados::errorMsg($attrName), 1);
 					}
 				}
 			}
@@ -31,15 +31,15 @@
 		}
 
 		public function set($attrName, $attrValue){
-			if($this->validaCampo($attrName, $attrValue)){
+			if(Resultados::validaCampo($attrName, $attrValue)){
 				$this->$attrName = $attrValue;
 			}
 			else{
-				throw new Exception(Aposta::errorMsg($attrName), 1);
+				throw new Exception(Resultados::errorMsg($attrName), 1);
 			}
 		}
 
-		private function validaCampo($attrName, $attrValue){
+		private static function validaCampo($attrName, $attrValue){
 			$attrValue = print_r($attrValue, true);
 			$tam = strlen($attrValue);
 

@@ -18,19 +18,6 @@
 	}
 </script>
 
-<!--
-	private $id;
-	private $nome;
-	private $cpf_cod;
-	private $telefone;
-	private $estado;
-	private $cidade;
-	private $rua;
-	private $bairro;
-	private $complemento;
-	private $senha;
--->
-
 <?php
 
 	if($jogador)

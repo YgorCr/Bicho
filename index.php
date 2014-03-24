@@ -10,6 +10,9 @@ require_once("controllers/jogador.controller.php");
 require_once("models/aposta.php");
 require_once("controllers/aposta.controller.php");
 
+require_once("models/resultados.php");
+require_once("controllers/resultados.controller.php");
+
 require_once("models/administrador.php");
 require_once("controllers/administrador.controller.php");
 

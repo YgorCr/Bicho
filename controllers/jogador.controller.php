@@ -40,6 +40,23 @@
 			return $jogadores[0];
 		}
 
+		public function getPremiadas($data, $tipo_da_aposta, $aposta, $sorteio)
+		{
+			$res = $this->db->select("jogador", "id='".$id."'");
+
+			$jogadores = array();
+
+			foreach ($res as $arr) {
+				$jog = new Jogador();
+				foreach ($arr as $key => $value) {
+					$jog->set($key, $value);
+				}
+				$jogadores[] = $jog;
+			}
+
+			return $jogadores[0];
+		}
+
 		public function tryLogin($cpf, $senha)
 		{
 			$md5 = md5($senha);
