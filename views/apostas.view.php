@@ -1,8 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+	    <meta charset='UTF-8' />
+		<title>Local de Apostas</title>
+		<script type="text/javascript" src="../static/js/apostas.js"></script>
+	</head>
+	<body>	
 <?php
-
 	// arquivo comum para o cabeçalho das páginas
 	include("header.php");
-
 ?>
 
 <div class="panel panel-default">
