@@ -10,6 +10,7 @@
 			documento.value += texto.substring(0,1);
 		}
 	}
+	
 	function cleanMe()
 	{
 		$(".form-control").val("");

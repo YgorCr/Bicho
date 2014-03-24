@@ -8,6 +8,10 @@
 <?php
 	session_start();
 
+	if($jogador){
+		header("location:?a=apostas");
+	}
+
 	$cpf = $_POST["cpf"];
 	$senha = $_POST["senha"];
 

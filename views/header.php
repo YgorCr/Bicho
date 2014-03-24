@@ -43,14 +43,10 @@
             <li 
               <?php if($ac=="home" || $ac=="partidas"){ ?> class="active" <?php } ?>
                ><a href="?a=home">Home</a></li>
-
+            
             <li 
               <?php if($ac=="jogador"){ ?> class="active" <?php } ?>
                ><a href="?a=jogador"> <?php if($jogador) echo "Minha conta"; else echo "Cadastre-se"; ?> </a></li>
-
-            <li 
-              <?php if($ac=="sobre"){ ?> class="active" <?php } ?>
-               ><a href="?a=sobre">Sobre</a></li>
 
             <li 
               <?php if($ac=="jogador.login"){ ?> class="active" <?php } ?>
@@ -63,6 +59,10 @@
               <?php } ?>
 
              </li>
+
+            <li 
+              <?php if($ac=="sobre"){ ?> class="active" <?php } ?>
+               ><a href="?a=sobre">Sobre</a></li>
 
              <?php if($jogador) { ?>
              <li>

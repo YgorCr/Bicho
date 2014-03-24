@@ -7,6 +7,9 @@ require_once('class.db.php');
 require_once("models/jogador.php");
 require_once("controllers/jogador.controller.php");
 
+require_once("models/aposta.php");
+require_once("controllers/aposta.controller.php");
+
 require_once("models/administrador.php");
 require_once("controllers/administrador.controller.php");
 
