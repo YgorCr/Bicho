@@ -60,13 +60,15 @@
 				echo $key." = '".$value."' length = ".strlen($value)."<br>";		
 			}
 			/* */
-
 			$jogadorCtrl = new JogadorController($db);
 			$novoJogador = new Jogador();
 			foreach ($_POST as $key => $value) {
 				if($key=="telefone")
 				{
 					$value = str_replace(" ", "", $value);
+					$value = str_replace("-", "", $value);
+				} else if($key == "cpf_cod"){
+					$value = str_replace(".", "", $value);
 					$value = str_replace("-", "", $value);
 				} else if($key=="senha") {
 					$value = md5($value);
