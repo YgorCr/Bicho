@@ -4,24 +4,17 @@
 	include("header.php");
 
 	session_start();
-
-	$ingressosClassesCtr = new IngressosClassesController($db);
-
-	$classes = $_SESSION["compra_classes"];
-	foreach ($classes as $classe_id) {
-		$classe = $ingressosClassesCtr->byId($classe_id);
-
-		$vendidos = $classe->get("vendidos");
-		$vendidos = $vendidos-1;
-		$classe->set("vendidos", $vendidos);
-		$ingressosClassesCtr->update($classe);
-	}
-
-	unset($_SESSION["comprador_id"]);
+	unset($_SESSION["jogador_id"]);
 	unset($_SESSION["admin_id"]);
-	unset($_SESSION["compra_classes"]);
 
+	echo '<meta http-equiv="refresh" content="5; url=?a=home">'
 ?>
+
+<div class="panel panel-danger">
+  	<div class="panel-body">
+  		Logout realizado com sucesso. Volte sempre e Boa Sorte. =D
+	</div>
+</div>	
 
 <?php
 
