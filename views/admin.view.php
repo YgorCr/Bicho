@@ -78,8 +78,8 @@
   <div class="panel-body">
 
     <ul class="list-group">
-      <li class="list-group-item"><a href="?a=resultados">Inserir resultados</a></li>
-      <li class="list-group-item"><a href="?a=vencedores.admin">Vencedores</a></li>
+      <li class="list-group-item"><a href="?a=resultados">Cadastrar resultados de hoje</a></li>
+      <li class="list-group-item"><a href="?a=sorteios.list">Listar Sorteios</a></li>
     </ul>
 
   </div>

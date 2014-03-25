@@ -49,13 +49,15 @@
 
 		public function get(/*string*/ $attrName){
 			if($attrName == "tipo_da_aposta")
-				return $this->getTipo($this->$attrName);
+				return Aposta::getTipo($this->$attrName);
 			else if($attrName == "forma_de_pagamento")
-				return $this->getFormaDePagamento($this->$attrName);
+				return Aposta::getFormaDePagamento($this->$attrName);
 			else if($attrName == "sorteio")
-				return $this->getSorteio($this->$attrName);
+				return Aposta::getSorteio($this->$attrName);
 			else if($attrName == "aposta"  && 3 == $this->tipo_da_aposta)
-				return $this->getGrupo($this->aposta);
+				return Aposta::getGrupo($this->aposta);
+			else if($attrName == "valor_do_premio")
+				return $this->getMultiplicador()*$this->valor;
 			else
 				return $this->$attrName;
 		}
@@ -94,22 +96,20 @@
 					switch ($this->tipo_da_aposta) {
 						case  '0':
 						case   0 :
-						case  "0":
+							return is_numeric($attrValue) && strlen($attrValue) == 2;
 						
 						case  '1':
 						case   1 :
-						case  "1":
 							return is_numeric($attrValue) && strlen($attrValue) == 3;
 						
 						case  '2':
 						case   2 :
-						case  "2":
 							return is_numeric($attrValue) && strlen($attrValue) == 4;
 						
 						case  '3':
-						case  "3":
 						case   3 :
 							return is_numeric($attrValue) && ((int)$attrValue) < 100 && ((int)$attrValue) >=0;
+
 						default:
 							return false;
 					}
@@ -153,74 +153,63 @@
 			}
 		}
 
-		private function getTipo($tipo){
+		private static function getTipo($tipo){
 			switch ($tipo) {
 				case  '0':
 				case   0 :
-				case  "0":
 					return "Dezena";
 				
 				case  '1':
 				case   1 :
-				case  "1":
 					return "Centena";
 				
 				case  '2':
 				case   2 :
-				case  "2":
 					return "Milhar";
 				case  '3':
-				case  "3":
 				case   3 :
 					return "Grupo";
 			}
 		}
 
-		private function getFormaDePagamento($forma){
+		private static function getFormaDePagamento($forma){
 			switch ($forma) {
 				case '0':
-				case "0":
 				case  0 :
 					return "Débito";
 				
 				case '1':
-				case "1":
 				case  1 :
 					return "Crédito";
 				
 			}
 		}
 
-		private function getSorteio($sorteio){
+		private static function getSorteio($sorteio){
 			switch ($sorteio) {
 				case  '0':
 				case   0 :
-				case  "0":
 					return "1º Sorteio";
 				
 				case  '1':
 				case   1 :
-				case  "1":
 					return "2º Sorteio";
 				
 				case  '2':
 				case   2 :
-				case  "2":
 					return "3º Sorteio";
 					
 				case  '3':
-				case  "3":
 				case   3 :
 					return "4º Sorteio";
 					
 				case  '4':
-				case  "4":
 				case   4 :
 					return "5º Sorteio";
 			}
 		}
 
-		private function getGrupo($num){
+		private static function getGrupo($num){
 			$num = print_r($num, true);
 			switch ($num) {
 				case '1':
@@ -299,6 +288,45 @@
 					return 'Vaca';
 			}
 
+		}
+
+		public static function getDezenasGrupo($num){
+			$num = print_r($num, true);
+			$num = intval($num);
+
+			$retorno  = array();
+			if($num != 25)
+				for($i = 3; $i >= 0 ; $i--){
+					$retorno[$i] = sprintf("%02d",$num * 4 - $i);
+				}
+			else
+				$retorno = array('97', '98', '99', '00');
+
+			return $retorno;
+		}
+
+		private function getMultiplicador(){
+			switch ($this->tipo_da_aposta) {
+				case '0':
+				case  0 :
+					return 80;
+					break;
+
+				case '1':
+				case  1 :
+					return 500;
+					break;
+
+				case '2':
+				case  2 :
+					return 4000;
+					break;
+
+				case '3':
+				case  3 :
+					return 15;
+					break;
+			}
 		}
 	}
 ?>

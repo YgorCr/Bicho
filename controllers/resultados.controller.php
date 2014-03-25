@@ -58,7 +58,7 @@
 		{
 			return $this->byJogadorId($jogador->get("id"));
 		}
-				
+		
 		public function create($resultado){
 			$all = $resultado->get("attr");
 			$values = array();
@@ -79,7 +79,6 @@
 			$resultado->set("id", $res[0]["currval"]);
 
 			return $resultado;
-
 		}
 
 		public function update($resultado){

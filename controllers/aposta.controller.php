@@ -38,23 +38,50 @@
 			return $apostas[0];
 		}
 
-		public function getPremiadas($data, $tipo_da_aposta, $aposta, $sorteio)
+		public function byDataApostaSorteio($data, $aposta, $sorteio, $tipo_da_aposta)
 		{
-			$sqlWhere = "data='".$data."' && tipo_da_aposta = '".$tipo_da_aposta."' && aposta = '".$aposta."' && sorteio = '".$sorteio."'";
-			echo $sqlWhere;
+			$sqlWhere = "data='".$data."' AND aposta = '".$aposta."' AND sorteio = '".$sorteio."' AND tipo_da_aposta = '".$tipo_da_aposta."'";
 			$res = $this->db->select("aposta", $sqlWhere);
 
-			$jogadores = array();
+			$apostas = array();
 
 			foreach ($res as $arr) {
-				$jog = new Jogador();
+				$apo = new Aposta();
 				foreach ($arr as $key => $value) {
-					$jog->set($key, $value);
+					$apo->set($key, $value);
 				}
-				$jogadores[] = $jog;
+				$apostas[] = $apo;
+			}
+			
+			return $apostas;
+		}
+		
+		public function getPremiadas($data, $aposta, $sorteio)
+		{
+			$milhar = $aposta;
+			$milharesPremiadas = $this->byDataApostaSorteio($data, $milhar, $sorteio, 2);
+
+			$centena = substr($aposta, 1);
+			$centenasPremiadas = $this->byDataApostaSorteio($data, $centena, $sorteio, 1);
+
+			$dezena = substr($aposta, 2);
+			$dezenasPremiadas = $this->byDataApostaSorteio($data, $dezena, $sorteio, 0);
+
+			if($dezena == '00'){
+				$grupo = '25';
+			}
+			else{
+				$grupo = floor(intval($dezena)/4 + !!(intval($dezena)%4));
+				$grupo = sprintf("%02d",$grupo);
 			}
 
-			return $jogadores[0];
+			$gruposPremiadas = $this->byDataApostaSorteio($data, $grupo, $sorteio, 3);
+
+			$apostas = array_merge($milharesPremiadas, $centenasPremiadas);
+			$apostas = array_merge($apostas, $dezenasPremiadas);
+			$apostas = array_merge($apostas, $gruposPremiadas);
+
+			return $apostas;
 		}
 
 		public function byJogadorId($jogador_id){
@@ -87,7 +114,12 @@
 
 			$insert = array();
 			for($i=0;$i<count($all);$i++){
-				if($all[$i]=="id" || $all[$i]=="data") continue;
+				if($all[$i]=="id") continue;
+				if($all[$i] == "data"){
+					$res = $this->db->select("resultados", "", "", "max(data)");
+					echo $res[0][0];
+					continue;
+				}
 				$insert[$all[$i]] = $values[$i];
 			}
 

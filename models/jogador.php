@@ -97,7 +97,7 @@
 					return false;
 
 				default:
-					return "O atributo ".$attrName." não pertence a esta classe. Atributo desconhecido!";
+					return false;
 			}
 		}
 
