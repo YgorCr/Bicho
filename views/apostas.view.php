@@ -84,40 +84,40 @@
 								<div class='panel-body'>
 									<table class='table' border='1'>
 										<tr align='center'>
-											<td>1</td><td><img src='static/images/Table_bichos/avestruz.jpg' height='50' width='50'/></br>Avestruz</td><td><br><nobr>01 - 02 - 03 - 04</nobr></td><td><input type='radio' name='aposta' value='01'/></td>
-											<td>2</td><td><img src='static/images/Table_bichos/aguia.gif' height='50' width='50'/></br>Aguia</td><td><br><nobr>05 - 62 - 07 - 08</nobr></td><td><input type='radio' name='aposta' value='02'/></td>
-											<td>3</td><td><img src='static/images/Table_bichos/burro.jpg' height='50' width='50'/></br>Burro</td><td><br><nobr>09 - 10 - 11 - 12</nobr></td><td><input type='radio' name='aposta' value='03'/></td>
-											<td>4</td><td><img src='static/images/Table_bichos/borboleta.gif' height='50' width='50'/></br>Borboleta</td><td><br><nobr>13 - 14 - 15 - 16</nobr></td><td><input type='radio' name='aposta' value='04'/></td>
+											<td>1</td><td><img src='static/images/Table_bichos/avestruz.jpg' alt='avestruz' height='50' width='50'/></br>Avestruz</td><td><br><nobr>01 - 02 - 03 - 04</nobr></td><td><input type='radio' name='aposta' value='01'/></td>
+											<td>2</td><td><img src='static/images/Table_bichos/aguia.gif' alt='águia' height='50' width='50'/></br>Aguia</td><td><br><nobr>05 - 62 - 07 - 08</nobr></td><td><input type='radio' name='aposta' value='02'/></td>
+											<td>3</td><td><img src='static/images/Table_bichos/burro.jpg' alt='burro' height='50' width='50'/></br>Burro</td><td><br><nobr>09 - 10 - 11 - 12</nobr></td><td><input type='radio' name='aposta' value='03'/></td>
+											<td>4</td><td><img src='static/images/Table_bichos/borboleta.gif' alt='borboleta' height='50' width='50'/></br>Borboleta</td><td><br><nobr>13 - 14 - 15 - 16</nobr></td><td><input type='radio' name='aposta' value='04'/></td>
 										</tr>
 										<tr align='center'>
-											<td>5</td><td><img src='static/images/Table_bichos/cachorro.png' height='50' width='50'/></br>Cachorro</td><td><br><nobr>17 - 18 - 19 - 20</nobr></td><td><input type='radio' name='aposta' value='05'/></td>
-											<td>6</td><td><img src='static/images/Table_bichos/cabra.jpg' height='50' width='50'/></br>Cabra</td><td><br><nobr>21 - 22 - 23 - 24</nobr></td><td><input type='radio' name='aposta' value='06'/></td>
-											<td>7</td><td><img src='static/images/Table_bichos/carneiro.png' height='50' width='50'/></br>Carneiro</td><td><br><nobr>25 - 26 - 27 - 28</nobr></td><td><input type='radio' name='aposta' value='07'/></td>
-											<td>8</td><td><img src='static/images/Table_bichos/camelo.png' height='50' width='50'/></br>Camelo</td><td><br><nobr>29 - 30 - 31 - 32</nobr></td><td><input type='radio' name='aposta' value='08' /></td>
+											<td>5</td><td><img src='static/images/Table_bichos/cachorro.png' alt='cachorro' height='50' width='50'/></br>Cachorro</td><td><br><nobr>17 - 18 - 19 - 20</nobr></td><td><input type='radio' name='aposta' value='05'/></td>
+											<td>6</td><td><img src='static/images/Table_bichos/cabra.jpg' alt='cabra' height='50' width='50'/></br>Cabra</td><td><br><nobr>21 - 22 - 23 - 24</nobr></td><td><input type='radio' name='aposta' value='06'/></td>
+											<td>7</td><td><img src='static/images/Table_bichos/carneiro.png' alt='carneiro' height='50' width='50'/></br>Carneiro</td><td><br><nobr>25 - 26 - 27 - 28</nobr></td><td><input type='radio' name='aposta' value='07'/></td>
+											<td>8</td><td><img src='static/images/Table_bichos/camelo.png' alt='camelo' height='50' width='50'/></br>Camelo</td><td><br><nobr>29 - 30 - 31 - 32</nobr></td><td><input type='radio' name='aposta' value='08' /></td>
 										</tr>
 										<tr align='center'>
-											<td>9</td><td><img src='static/images/Table_bichos/cobra.jpg' height='50' width='50'/></br>Cobra</td><td><br><nobr>33 - 34 - 35 - 36</nobr></td><td><input type='radio' name='aposta' value='09'/></td>
-											<td>10</td><td><img src='static/images/Table_bichos/coelho.png' height='50' width='50'/></br>Coelho</td><td><br><nobr>37 - 38 - 39 - 40</nobr></td><td><input type='radio' name='aposta' value='10'/></td>
-											<td>11</td><td><img src='static/images/Table_bichos/cavalo.png' height='50' width='50'/></br>Cavalo</td><td><br><nobr>41 - 42 - 43 - 44</nobr></td><td><input type='radio' name='aposta' value='11'/></td>
-											<td>12</td><td><img src='static/images/Table_bichos/elefante.png' height='50' width='50'/></br>Elefante</td><td><br><nobr>45 - 46 - 47 - 48</nobr></td><td><input type='radio' name='aposta' value='12'/></td>
+											<td>9</td><td><img src='static/images/Table_bichos/cobra.jpg' alt='cobra' height='50' width='50'/></br>Cobra</td><td><br><nobr>33 - 34 - 35 - 36</nobr></td><td><input type='radio' name='aposta' value='09'/></td>
+											<td>10</td><td><img src='static/images/Table_bichos/coelho.png' alt='coelho' height='50' width='50'/></br>Coelho</td><td><br><nobr>37 - 38 - 39 - 40</nobr></td><td><input type='radio' name='aposta' value='10'/></td>
+											<td>11</td><td><img src='static/images/Table_bichos/cavalo.png' alt='cavalo' height='50' width='50'/></br>Cavalo</td><td><br><nobr>41 - 42 - 43 - 44</nobr></td><td><input type='radio' name='aposta' value='11'/></td>
+											<td>12</td><td><img src='static/images/Table_bichos/elefante.png' alt='elefante' height='50' width='50'/></br>Elefante</td><td><br><nobr>45 - 46 - 47 - 48</nobr></td><td><input type='radio' name='aposta' value='12'/></td>
 										</tr>'
 										<tr align='center'>
-											<td>13</td><td><img src='static/images/Table_bichos/galo.png' height='50' width='50'/></br>Galo</td><td><br><nobr>49 - 50 - 51 - 52</nobr></td><td><input type='radio' name='aposta' value='13' /></td>
-											<td>14</td><td><img src='static/images/Table_bichos/gato.png' height='50' width='50'/></br>Gato</td><td><br><nobr>53 - 54 - 55 - 56</nobr></td><td><input type='radio' name='aposta' value='14'/></td>
-											<td>15</td><td><img src='static/images/Table_bichos/jacare.jpg' height='50' width='50'/></br>Jacare</td><td><br><nobr>57 - 58 - 59 - 60</nobr></td><td><input type='radio' name='aposta' value='15'/></td>
-											<td>16</td><td><img src='static/images/Table_bichos/leao.jpg' height='50' width='50'/></br>Leão</td><td><br><nobr>61 - 62 - 63 - 64</nobr></td><td><input type='radio' name='aposta' value='16'/></td>
+											<td>13</td><td><img src='static/images/Table_bichos/galo.png' alt='galo' height='50' width='50'/></br>Galo</td><td><br><nobr>49 - 50 - 51 - 52</nobr></td><td><input type='radio' name='aposta' value='13' /></td>
+											<td>14</td><td><img src='static/images/Table_bichos/gato.png' alt='gato' height='50' width='50'/></br>Gato</td><td><br><nobr>53 - 54 - 55 - 56</nobr></td><td><input type='radio' name='aposta' value='14'/></td>
+											<td>15</td><td><img src='static/images/Table_bichos/jacare.jpg' alt='jacaré' height='50' width='50'/></br>Jacare</td><td><br><nobr>57 - 58 - 59 - 60</nobr></td><td><input type='radio' name='aposta' value='15'/></td>
+											<td>16</td><td><img src='static/images/Table_bichos/leao.jpg' alt='leao' height='50' width='50'/></br>Leão</td><td><br><nobr>61 - 62 - 63 - 64</nobr></td><td><input type='radio' name='aposta' value='16'/></td>
 										</tr>
 										<tr align='center'>
-											<td>17</td><td><img src='static/images/Table_bichos/macaco.png' height='50' width='50'/></br>Macaco</td><td><br><nobr>65 - 66 - 67 - 68</nobr></td><td><input type='radio' name='aposta' value='17'/></td>
-											<td>18</td><td><img src='static/images/Table_bichos/porco.png' height='50' width='50'/></br>Porco</td><td><br><nobr>69 - 70 - 71 - 72</nobr></td><td><input type='radio' name='aposta' value='18'/></td>
-											<td>19</td><td><img src='static/images/Table_bichos/pavao.jpg' height='50' width='50'/></br>Pavão</td><td><br><nobr>73 - 74 - 75 - 76</nobr></td><td><input type='radio' name='aposta' value='19'/></td>
-											<td>20</td><td><img src='static/images/Table_bichos/peru.png' height='50' width='50'/></br>Peru</td><td><br><nobr>77 - 78 - 79 - 80</nobr></td><td><input type='radio' name='aposta' value='20'/></td>
+											<td>17</td><td><img src='static/images/Table_bichos/macaco.png' alt='macaco' height='50' width='50'/></br>Macaco</td><td><br><nobr>65 - 66 - 67 - 68</nobr></td><td><input type='radio' name='aposta' value='17'/></td>
+											<td>18</td><td><img src='static/images/Table_bichos/porco.png' alt='porco' height='50' width='50'/></br>Porco</td><td><br><nobr>69 - 70 - 71 - 72</nobr></td><td><input type='radio' name='aposta' value='18'/></td>
+											<td>19</td><td><img src='static/images/Table_bichos/pavao.jpg' alt='pavao' height='50' width='50'/></br>Pavão</td><td><br><nobr>73 - 74 - 75 - 76</nobr></td><td><input type='radio' name='aposta' value='19'/></td>
+											<td>20</td><td><img src='static/images/Table_bichos/peru.png' alt='peru' height='50' width='50'/></br>Peru</td><td><br><nobr>77 - 78 - 79 - 80</nobr></td><td><input type='radio' name='aposta' value='20'/></td>
 										</tr>
 										<tr align='center'>
-											<td>21</td><td><img src='static/images/Table_bichos/touro.jpg' height='50' width='50'/></br>Touro</td><td><br><nobr>81 - 82 - 83 - 84</nobr></td><td><input type='radio' name='aposta' value='21'/></td>
-											<td>22</td><td><img src='static/images/Table_bichos/tigre.jpg' height='50' width='50'/></br>Tigre</td><td><br><nobr>85 - 86 - 87 - 88</nobr></td><td><input type='radio' name='aposta' value='22'/></td>
-											<td>23</td><td><img src='static/images/Table_bichos/urso.jpg' height='50' width='50'/></br>Urso</td><td><br><nobr>89 - 90 - 91 - 92</nobr></td><td><input type='radio' name='aposta' value='23'/></td>
-											<td>24</td><td><img src='static/images/Table_bichos/veado.jpg' height='50' width='50'/></br>Veado</td><td><br><nobr>93 - 94 - 95 - 96</nobr></td><td><input type='radio' name='aposta' value='4'/></td>
+											<td>21</td><td><img src='static/images/Table_bichos/touro.jpg' alt='touro' height='50' width='50'/></br>Touro</td><td><br><nobr>81 - 82 - 83 - 84</nobr></td><td><input type='radio' name='aposta' value='21'/></td>
+											<td>22</td><td><img src='static/images/Table_bichos/tigre.jpg' alt='tigre' height='50' width='50'/></br>Tigre</td><td><br><nobr>85 - 86 - 87 - 88</nobr></td><td><input type='radio' name='aposta' value='22'/></td>
+											<td>23</td><td><img src='static/images/Table_bichos/urso.jpg' alt='urso' height='50' width='50'/></br>Urso</td><td><br><nobr>89 - 90 - 91 - 92</nobr></td><td><input type='radio' name='aposta' value='23'/></td>
+											<td>24</td><td><img src='static/images/Table_bichos/veado.jpg' alt='veado' height='50' width='50'/></br>Veado</td><td><br><nobr>93 - 94 - 95 - 96</nobr></td><td><input type='radio' name='aposta' value='4'/></td>
 										</tr>
 									</table>
 									<div style='padding-left: 37.5%'>
@@ -146,27 +146,27 @@
 									<tr>
 										<td><center><input type='radio' name='sorteio' value='0'/></center></td>
 										<td><center> 1º Sorteio </center></td>
-										<td><center><img src='static/images/duvida.png' title='Concorre no primeiro sorteio.' height='14' width='14'/></center></td>
+										<td><center><img src='static/images/duvida.png' title='Concorrer no primeiro sorteio.' height='14' width='14'/></center></td>
 									</tr>
 									<tr>
 										<td><center><input type='radio' name='sorteio' value='1'></center></td>
 										<td><center>  2º Sorteio </center></td>
-										<td><center><img src='static/images/duvida.png' title='Concorre no segundo sorteio.' height='14' width='14'/></center></td>
+										<td><center><img src='static/images/duvida.png' title='Concorrer no segundo sorteio.' height='14' width='14'/></center></td>
 									</tr>
 									<tr>
 										<td><center><input type='radio' name='sorteio' value='2'/></center></td>
 										<td><center> 3º Sorteio </center></td>
-										<td><center><img src='static/images/duvida.png' title='Concorre no terceiro sorteio.' height='14' width='14'/></center></td>
+										<td><center><img src='static/images/duvida.png' title='Concorrer no terceiro sorteio.' height='14' width='14'/></center></td>
 									</tr>
 									<tr>
 										<td><center><input type='radio' name='sorteio' value='3'/></center></td>
 										<td><center> 4º Sorteio </center></td>
-										<td><center><img src='static/images/duvida.png' title='Concorre no quarto sorteio.' height='14' width='14'/></center></td>
+										<td><center><img src='static/images/duvida.png' title='Concorrer no quarto sorteio.' height='14' width='14'/></center></td>
 									</tr>
 									<tr>
 										<td><center><input type='radio' name='sorteio' value='4'/></center></td>
 										<td><center> 5º Sorteio </center></td>
-										<td><center><img src='static/images/duvida.png' title='Concorre no quinto sorteio.' height='14' width='14'/></center></td>
+										<td><center><img src='static/images/duvida.png' title='Concorrer no quinto sorteio.' height='14' width='14'/></center></td>
 									</tr>
 								</table>
 							</div>
@@ -199,22 +199,22 @@
 										<tr>
 											<th>Grupo</th>
 											<td style='width:100px'><center><input type='radio' name='tipo_Aposta' value='grupo'/></center></td>
-											<td><img src='static/images/duvida.png' title='Neste tipo de aposta você escolherá um grupo que corresponde um determinado animal' height='14' width='14'/></td>
+											<td><img src='static/images/duvida.png' title='Neste tipo de aposta você escolherá um grupo de dezenas que corresponde um determinado animal' height='14' width='14'/></td>
 										</tr>
 										<tr>
 											<th>Dezena</th>
 											<td><center><input type='radio' name='tipo_Aposta' value='dezena'/></center></td>
-											<td><img src='static/images/duvida.png' title='Escolha uma moalidade de aposta para dezena' height='14' width='14'/></td>
+											<td><img src='static/images/duvida.png' title='Neste tipo de aposta você escolherá uma determinada dezena para jogar' height='14' width='14'/></td>
 										</tr>
 										<tr>
 											<th>Centena</th>
 											<td><center><input type='radio' name='tipo_Aposta' value='centena'/></center></th>
-											<td><img src='static/images/duvida.png' title='Escolha uma moalidade de aposta para centena' height='14' width='14'/></td>
+											<td><img src='static/images/duvida.png' title='Neste tipo de aposta você escolherá uma determinada centena para jogar' height='14' width='14'/></td>
 										</tr>
 										<tr>
 											<th>Milhar</th>
 											<td><center><input type='radio' name='tipo_Aposta' value='milhar'/></center></td>
-											<td><img src='static/images/duvida.png' title='Escolha uma moalidade de aposta para milhar' height='14' width='14'/></td>
+											<td><img src='static/images/duvida.png' title='Neste tipo de aposta você escolherá uma determinada milhar para jogar' height='14' width='14'/></td>
 										</tr>
 									</table>
 									<center>
