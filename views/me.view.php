@@ -18,6 +18,11 @@
   $apostas = $apostaCtr->byJogador($jogador);
 ?>
 
+<?php
+  $ok = '<span class="glyphicon glyphicon-thumbs-up"></span>';
+  $notOk = '<span class="glyphicon glyphicon-thumbs-down"></span>';
+?>
+
 <div class="panel panel-default">
   <div class="panel-heading"><?php echo $jogador->get("nome"); ?></div>
   <div class="panel-body">
@@ -40,9 +45,11 @@
             <th><center>Forma de pagamento</center></th>
             <th><center>Concorrendo no</center></th>
             <th><center>Valor</center></th>
+            <th><center>Premiado</center></th>
           </tr>
           <?php
             foreach ($apostas as $key => $value) {
+              $premiado = ($value->get("premiada"))?($ok."<br>Parabéns!!!<br>Valor do Prêmio:<br>R$ ".$value->get("valor_do_premio").",00"):($notOk."<br>Melhor sorte na próxima.");
               echo '
               <tr'.(($key%2)?(' bgcolor="#DCDCDC"'):("")).'>
                 <td><center>'.$value->get("data").'<center></td>
@@ -51,6 +58,7 @@
                 <td><center>'.$value->get("forma_de_pagamento").'<center></td>
                 <td><center>'.$value->get("sorteio").'<center></td>
                 <td><center>'.$value->get("valor").'<center></td>
+                <td><center>'.$premiado.'<center></td>
               </tr>
               ';
             }

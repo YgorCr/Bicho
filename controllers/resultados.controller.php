@@ -21,7 +21,39 @@
 
 			return $resultados;
 		}
-		
+
+		public function byData(/* int */ $data){
+			$res = $this->db->select("resultados", "data='".$data."'");
+
+			$resultados = array();
+
+			foreach ($res as $arr) {
+				$resu = new Resultados();
+				foreach ($arr as $key => $value) {
+					$resu->set($key, $value);
+				}
+				$resultados[] = $resu;
+			}
+
+			return $resultados[0];
+		}
+
+		public function byDataExcept(/* int */ $data){
+			$res = $this->db->select("resultados", "data != '".$data."' order by data desc");
+
+			$resultados = array();
+
+			foreach ($res as $arr) {
+				$resu = new Resultados();
+				foreach ($arr as $key => $value) {
+					$resu->set($key, $value);
+				}
+				$resultados[] = $resu;
+			}
+
+			return $resultados;
+		}
+
 		public function byId(/* int */ $id){
 			$res = $this->db->select("resultados", "id='".$id."'");
 

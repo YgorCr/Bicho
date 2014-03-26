@@ -21,7 +21,7 @@
   $premiados = array();
 
   for($i = 0 ; $i < 5 ; $i++)
-    $premiados[$i] = $apostaCtr->getPremiadas(date('Y-m-d'), $resultado->get("sorteio1"), $i);
+    $premiados[$i] = $apostaCtr->getPremiadas($resultado->get("data"), $resultado->get("sorteio1"), $i);
   
   $arrecadacaoTotal = $db->select("aposta", "data = '".$resultado->get("data")."'", "","sum(valor)");
   $arrecadacaoTotal = ($arrecadacaoTotal[0]["sum"])?($arrecadacaoTotal[0]["sum"]):(0);

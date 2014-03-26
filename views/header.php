@@ -43,6 +43,10 @@
             <li 
               <?php if($ac=="home" || $ac=="partidas"){ ?> class="active" <?php } ?>
                ><a href="?a=home">Home</a></li>
+
+            <li 
+              <?php if($ac=="resuhist"){ ?> class="active" <?php } ?>
+               ><a href="?a=resuhist">Resultados</a></li>
             
             <li 
               <?php if($ac=="jogador"){ ?> class="active" <?php } ?>
@@ -55,10 +59,20 @@
                <?php if(!$jogador){ ?>
                 <a href="?a=jogador.login">Login</a>
               <?php } else { ?>
-                <a href="#"><?php echo $jogador->get("nome"); ?></a>
+                <a href="?a=jogador"><?php echo $jogador->get("nome"); ?></a>
               <?php } ?>
 
              </li>
+
+             <?php
+              if($jogador){ ?>
+                <li 
+                  <?php if($ac=="apostas"){ ?> class="active" <?php } ?>
+                   ><a href="?a=apostas">JOGAR</a></li>
+                  <?php
+              }
+             ?>
+
 
             <li 
               <?php if($ac=="sobre"){ ?> class="active" <?php } ?>
@@ -71,15 +85,6 @@
              <?php } ?>
 
           </ul>
-
-          <form class="navbar-form navbar-right" role="search" action="">
-            <div class="form-group">
-              <input type="hidden" name="a" value="buscar"/>
-              <input type="hidden" name="by" value="nome" />
-              <input type="text" class="form-control" placeholder="Buscar resultados" name="q">
-            </div>
-            <button type="submit" class="btn btn-default">Buscar</button>
-          </form>
 
         </div><!--/.nav-collapse -->
       </div>

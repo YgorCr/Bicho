@@ -67,7 +67,16 @@
 
 			$novoJogador = $jogadorCtrl->create($novoJogador);
 
-			header("location:?a=jogador.login");
+			$sucesso = true;
+
+			include("header.php");
+			echo 	'
+					<div class="panel panel-default">
+						<div class="panel-heading">Cadastro realizado com sucesso.</div>
+					</div>
+					';
+
+			echo '<meta http-equiv="refresh" content="5; url=?a=jogador.login">';
 
 		}
 	}
@@ -75,6 +84,7 @@
 
 <?php
 
+	if(!$sucesso){
 	// arquivo comum para o cabeçalho das páginas
 	include("header.php");
 
@@ -168,7 +178,7 @@
 </div>
 
 <?php
-
+	}
 	// arquivo comum para o final das páginas
 	include("footer.php");
 

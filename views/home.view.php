@@ -9,7 +9,7 @@
 	session_start();
 
 	if($jogador){
-		header("location:?a=apostas");
+		header("location:?a=resuhist");
 	}
 
 	$cpf = $_POST["cpf"];
@@ -22,7 +22,7 @@
 		if($jogador)
 		{
 			$_SESSION["jogador_id"] = $jogador->get("id");
-			header("location:?a=home");
+			header("location:?a=resuhist");
 		} else {
 			$errorMsg = "Falha no login!";
 		}

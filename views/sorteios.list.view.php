@@ -34,7 +34,7 @@
       <div class="panel-body">
         <table class="table">
           <tr>
-            <th><center>Data da aposta</center></th>
+            <th><center>Data dos sorteios</center></th>
             <th><center>1º Sorteio</center></th>
             <th><center>2º Sorteio</center></th>
             <th><center>3º Sorteio</center></th>

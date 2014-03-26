@@ -133,6 +133,7 @@ class db extends PDO {
 		if(!empty($where))
 			$sql .= " WHERE " . $where;
 		$sql .= ";";
+
 		return $this->run($sql, $bind);
 	}
 
