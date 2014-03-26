@@ -144,27 +144,27 @@
 							<div style='width: 300px'>
 								<table class='table'>
 									<tr>
-										<td><center><input type='radio' name='sorteio' value='0'/></center></td>
+										<td><center><input type='checkbox' name='sorteio1' value='0'/></center></td>
 										<td><center> 1º Sorteio </center></td>
 										<td><center><img src='static/images/duvida.png' title='Concorrer no primeiro sorteio.' height='14' width='14'/></center></td>
 									</tr>
 									<tr>
-										<td><center><input type='radio' name='sorteio' value='1'></center></td>
+										<td><center><input type='checkbox' name='sorteio2' value='1'></center></td>
 										<td><center>  2º Sorteio </center></td>
 										<td><center><img src='static/images/duvida.png' title='Concorrer no segundo sorteio.' height='14' width='14'/></center></td>
 									</tr>
 									<tr>
-										<td><center><input type='radio' name='sorteio' value='2'/></center></td>
+										<td><center><input type='checkbox' name='sorteio3' value='2'/></center></td>
 										<td><center> 3º Sorteio </center></td>
 										<td><center><img src='static/images/duvida.png' title='Concorrer no terceiro sorteio.' height='14' width='14'/></center></td>
 									</tr>
 									<tr>
-										<td><center><input type='radio' name='sorteio' value='3'/></center></td>
+										<td><center><input type='checkbox' name='sorteio4' value='3'/></center></td>
 										<td><center> 4º Sorteio </center></td>
 										<td><center><img src='static/images/duvida.png' title='Concorrer no quarto sorteio.' height='14' width='14'/></center></td>
 									</tr>
 									<tr>
-										<td><center><input type='radio' name='sorteio' value='4'/></center></td>
+										<td><center><input type='checkbox' name='sorteio5' value='4'/></center></td>
 										<td><center> 5º Sorteio </center></td>
 										<td><center><img src='static/images/duvida.png' title='Concorrer no quinto sorteio.' height='14' width='14'/></center></td>
 									</tr>

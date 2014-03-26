@@ -16,7 +16,7 @@ require_once("controllers/resultados.controller.php");
 require_once("models/administrador.php");
 require_once("controllers/administrador.controller.php");
 
-$configUrl = "pgsql:dbname=".$config["dbname"].";host=".$config["dbhost"].";";
+$configUrl = "pgsql:dbname=".$config["dbname"].";host=".$config["dbhost"].";";  //psql:dbname=bicho;host=localhost;
 
 $db = new db($configUrl,$config["dbuser"],$config["dbpass"]);
 
