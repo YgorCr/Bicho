@@ -19,9 +19,10 @@
   $jogadorCtr = new JogadorController($db);
   $resultado = $resultadosCtr->byId($_GET["id"]);
   $premiados = array();
+  $premiados[0] = array();
 
   for($i = 0 ; $i < 5 ; $i++)
-    $premiados[$i] = $apostaCtr->getPremiadas(date('Y-m-d'), $resultado->get("sorteio1"), $i);
+    $premiados[0] = array_merge($premiados[0],$apostaCtr->getPremiadasPagas(date('Y-m-d'), $resultado->get("sorteio1"), $i));
   
   $arrecadacaoTotal = $db->select("aposta", "data = '".$resultado->get("data")."'", "","sum(valor)");
   $arrecadacaoTotal = ($arrecadacaoTotal[0]["sum"])?($arrecadacaoTotal[0]["sum"]):(0);
@@ -33,42 +34,20 @@
     }
   }
 ?>
-<a href="?a=sorteios.list">
+<a href=<?php echo "?a=resultado&id=".$_GET["id"]?>>
   <button type="button" class="btn btn-default btn-lg">
     <span class="glyphicon glyphicon-chevron-left"></span> Voltar
   </button>
 </a>
 <p>
-<div class="panel panel-default">
-  <div class="panel-heading hdefault">Dados da corrida</div>
-    <table class="table">
-      <tr>
-        <th><center>Arrecadação</center></th>
-        <th><center>Total em Prêmios</center></th>
-        <th><center>Apostas Pagas</center></th>
-        <th><center>Apostas a pagar</center></th>
-      </tr>
-      <tr>
-        <td><center><?php echo "R$ ".$arrecadacaoTotal.",00"; ?></center></td>
-        <td><center><?php echo "R$ ".$totalDePremiosDistribuidos.",00"; ?></center></td>
-        <td><center><a href=<?php echo "'?a=pagas&id=".$_GET['id']."'"?>>Visualizar</a></center></td>
-        <td><center><a href=<?php echo "'?a=a_pagar&id=".$_GET['id']."'"?>>Visualizar</a></center></td>
-      </tr>
-    </table>
-  <div class="panel-body">
-  </div>
-</div>
 
 <div class="panel panel-default">
-  <div class="panel-heading">Resultado do dia <?php echo $resultado->get("data"); ?></div>
+  <div class="panel-heading">Vencedores do dia <?php echo $resultado->get("data"); ?> (PAGOS)</div>
   <div class="panel-body">
     <?php
       $ok = '<span class="glyphicon glyphicon-ok"></span>';
       $notOk = '<span class="glyphicon glyphicon-remove"></span>';
       foreach ($premiados as $key => $premio) { ?>
-        <div class="panel panel-default">
-          <div class="panel-heading hdefault">Vencedor(es) do <?php echo ($key+1).'º' ?> Sorteio</div>
-          <div class="panel-body">
             <?php 
             if(count($premio) != 0){?>
               <table class="table">
@@ -79,7 +58,6 @@
                       <th><center>Tipo da Aposta</center></th>
                       <th><center>Valor da Aposta</center></th>
                       <th><center>Valor do Prêmio</center></th>
-                      <th><center>Pago</center></th>
                     </tr>
                     <?php
                       foreach ($premio as $key => $value) {
@@ -93,14 +71,13 @@
                           <td><center>'.$value->get("tipo_da_aposta").'<center></td>
                           <td><center>R$ '.$value->get("valor").',00<center></td>
                           <td><center>R$ '.$value->get("valor_do_premio").',00<center></td>
-                          <td><center>'.$pago.'<center></td>
                         </tr>
                         ';
                       }
                     ?>
             </table>
             <?php 
-            }else echo "<strong>Não há vencedores no ".($key+1)."º Sorteio</strong>";?>
+            }else echo "<strong>Não há vencedores pagos.</strong>";?>
           </div>
         </div>
     <?php 

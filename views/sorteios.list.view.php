@@ -30,7 +30,7 @@
     <p>
 
     <div class="panel panel-default">
-      <div class="panel-heading hdefault">Minhas apostas</div>
+      <div class="panel-heading hdefault">Corridas</div>
       <div class="panel-body">
         <table class="table">
           <tr>

@@ -28,10 +28,12 @@
 		private $jogador_id;
 		private $sorteio;
 		private $valor;
+		private $pago;
+		private $premiada;
 
-		private $attr = array("id", "data", "tipo_da_aposta", "aposta", "forma_de_pagamento", "jogador_id", "sorteio", "valor");
+		private $attr = array("id", "data", "tipo_da_aposta", "aposta", "forma_de_pagamento", "jogador_id", "sorteio", "valor", "pago", "premiada");
 		
-		public function __construct(/*$id, $data, $tipo_da_aposta, $aposta, $forma_de_pagamento, $jogador_id, $sorteio, $valor*/){
+		public function __construct(/*$id, $data, $tipo_da_aposta, $aposta, $forma_de_pagamento, $jogador_id, $sorteio, $valor, $pago, $premiada*/){
 			$args = func_get_args();
 			$numArgs = func_num_args();
 
@@ -125,6 +127,10 @@
 				
 				case 'sorteio':
 					return is_numeric($attrValue) && ((int)$attrValue) < 5 && ((int)$attrValue) >=0;
+
+				case 'pago':
+				case 'premiada':
+					return true;
 
 				case 'attr':
 					return false;

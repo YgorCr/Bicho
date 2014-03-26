@@ -16,7 +16,25 @@
 	$sorteio3 = $_POST["sorteio3"];
 	$sorteio4 = $_POST["sorteio4"];
 	$sorteio5 = $_POST["sorteio5"];
-	if($sorteio1 && $sorteio2 && $sorteio3 && $sorteio4 && $sorteio5){
+
+	$jaHouveSorteioHoje = $db->select("resultados", "", "", "max(data)");
+	$jaHouveSorteioHoje = $jaHouveSorteioHoje[0]["max"];
+	if(date('Y-m-d') == $jaHouveSorteioHoje){
+		echo '
+			<div class="panel panel-default">
+				<div class="panel-heading">Os resultados de hoje já foram cadastrados!!!!</div>
+				<div class="panel-body">
+					<a href="?a=admin">
+				      <button type="button" class="btn btn-default btn-lg">
+				        <span class="glyphicon glyphicon-chevron-left"></span> Voltar
+				      </button>
+				    </a>
+				    <p>
+			    </div>
+			</div>
+			';
+	}
+	else if($sorteio1 && $sorteio2 && $sorteio3 && $sorteio4 && $sorteio5){
 		$resultadosCtrl = new ResultadosController($db);
 		$resultado = new Resultados();
 
@@ -25,18 +43,31 @@
 		}
 		$resultadosCtrl->create($resultado);
 		
+		$apostaCtr = new ApostaController($db);
+		$premiados = array();
+
+		for($i = 0 ; $i < 5 ; $i++)
+			$premiados[$i] = $apostaCtr->getPremiadas(date('Y-m-d'), $resultado->get("sorteio1"), $i);
+		
+		foreach ($premiados as $key => $premio) {
+			foreach ($premio as $key2 => $value) {
+				$value->set("premiada", true);
+				$apostaCtr->update($value);
+			}
+		}
+
 		echo "<div class='panel panel-default'>
 				<div class='panel-heading'>Resultado cadastrado com sucesso</div>
 			  </div>";
 
-		echo '<meta http-equiv="refresh" content="3; url=?a=home">';
+		//echo '<meta http-equiv="refresh" content="3; url=?a=home">';
 	}
 
 ?>
 
 
 <?php
-	if($admin && !$_POST["sorteio1"]){		?>
+	if($admin && !$_POST["sorteio1"] && date('Y-m-d') != $jaHouveSorteioHoje){		?>
 		<div class="panel panel-default">
 			<div class="panel-heading">Registrar resultados de hoje:&nbsp <?php echo date('Y-m-d');  ?> </div>
 			<div class="panel-body">
@@ -92,7 +123,7 @@
 
 <?php
 	}
-	else if(!$_POST["sorteio1"]){
+	else if(!$_POST["sorteio1"] && date('Y-m-d') != $jaHouveSorteioHoje){
 		header("location:?a=home");
 	}
 	// arquivo comum para o final das páginas
