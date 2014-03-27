@@ -60,6 +60,9 @@
 				case 'sorteio5':
 					return is_numeric($attrValue) && strlen($attrValue) == 4;
 				
+				case 'extracao':
+					return true;
+
 				case 'attr':
 					return false;
 

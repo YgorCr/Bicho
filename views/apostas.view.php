@@ -13,8 +13,21 @@
 	if($tipo_da_aposta){
 		$aposta = $_POST['aposta'];
 		$forma_de_pagamento = $_POST['forma_de_pagamento'];
-		$sorteio = $_POST['sorteio'];
+		$sorteios = array();
 		$valor = $_POST['valor'];
+
+		if($_POST['sorteio1'])
+			$sorteios[] = $_POST['sorteio1'];
+		if($_POST['sorteio2'])
+			$sorteios[] = $_POST['sorteio2'];
+		if($_POST['sorteio3'])
+			$sorteios[] = $_POST['sorteio3'];
+		if($_POST['sorteio4'])
+			$sorteios[] = $_POST['sorteio4'];
+		if($_POST['sorteio5'])
+			$sorteios[] = $_POST['sorteio5'];
+
+		$sorteio = 0;
 
 		switch ($tipo_da_aposta) {
 			case  'dezena':
@@ -43,17 +56,59 @@
 		$novaAposta->set("tipo_da_aposta", $_POST["opcao"]);
 		$novaAposta->set("aposta", $aposta);
 		$novaAposta->set("forma_de_pagamento", $forma_de_pagamento);
-		$novaAposta->set("sorteio", $sorteio);
-		$novaAposta->set("valor", $valor);
+		$novaAposta->set("valor", intval($valor)/count($sorteios));
 		$novaAposta->set("jogador_id", $jogador->get("id"));
 
-		$novaAposta = $apostaCtr->create($novaAposta);
-		
-		echo "<div class='panel panel-default'>
-			<div class='panel-heading'>Aposta realizada com sucesso!</div>
-		</div>";
+		$now = new DateTime('now');
+		$extracao1 = new DateTime($now->format('Y-m-d')." 12:00:00");
+		$extracao2 = new DateTime($now->format('Y-m-d')." 20:00:00");
+		$dezMin = new DateTime('00-0-0 00:10:00');
 
-		echo '<meta http-equiv="refresh" content="3; url=?a=home">';
+		$ext1interval = new DateTime($now->diff($extracao1)->format('%Y-%m-%d %h:%i'));
+		$ext2interval = new DateTime($now->diff($extracao2)->format('%Y-%m-%d %h:%i'));
+
+		if($now > $extracao1){
+			if($ext2interval > $dezMin){			
+				foreach ($sorteios as &$value) {
+					$novaAposta->set("sorteio", $value);
+					$novaAposta = $apostaCtr->create($novaAposta);
+				}
+				
+				echo "<div class='panel panel-default'>
+					<div class='panel-heading'>Aposta realizada com sucesso!</div>
+				</div>";
+
+				echo '<meta http-equiv="refresh" content="3; url=?a=home">';
+			}
+			else{
+				echo "<div class='panel panel-default'>
+					<div class='panel-heading'>Apostas temporariamente indisponíveis! Por favor, tente novamente em 15min.</div>
+				</div>";
+
+				echo '<meta http-equiv="refresh" content="3; url=?a=home">';
+			}
+		}
+		else{
+			if($ext1interval > $dezMin){			
+				foreach ($sorteios as &$value) {
+					$novaAposta->set("sorteio", $value);
+					$novaAposta = $apostaCtr->create($novaAposta);
+				}
+				
+				echo "<div class='panel panel-default'>
+					<div class='panel-heading'>Aposta realizada com sucesso!</div>
+				</div>";
+
+				echo '<meta http-equiv="refresh" content="3; url=?a=home">';
+			}
+			else{
+				echo "<div class='panel panel-default'>
+					<div class='panel-heading'>Apostas temporariamente indisponíveis! Por favor, tente novamente em 15min.</div>
+				</div>";
+
+				echo '<meta http-equiv="refresh" content="3; url=?a=home">';
+			}
+		}
 	}
 	else{
 ?>
